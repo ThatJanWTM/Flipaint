@@ -32,9 +32,11 @@
             btnHelp = new Button();
             groupHeader = new GroupBox();
             groupHUD = new GroupBox();
+            groupBox1 = new GroupBox();
             groupPenTool = new GroupBox();
             btnPenColor = new Button();
-            comboBox1 = new ComboBox();
+            cmbPenSize = new ComboBox();
+            pnl_Draw = new Panel();
             groupHeader.SuspendLayout();
             groupHUD.SuspendLayout();
             groupPenTool.SuspendLayout();
@@ -72,6 +74,7 @@
             // 
             // groupHUD
             // 
+            groupHUD.Controls.Add(groupBox1);
             groupHUD.Controls.Add(groupPenTool);
             groupHUD.Location = new Point(12, 55);
             groupHUD.Name = "groupHUD";
@@ -79,13 +82,22 @@
             groupHUD.TabIndex = 4;
             groupHUD.TabStop = false;
             // 
+            // groupBox1
+            // 
+            groupBox1.Location = new Point(6, 126);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(188, 100);
+            groupBox1.TabIndex = 6;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
+            // 
             // groupPenTool
             // 
             groupPenTool.Controls.Add(btnPenColor);
-            groupPenTool.Controls.Add(comboBox1);
+            groupPenTool.Controls.Add(cmbPenSize);
             groupPenTool.Location = new Point(6, 22);
             groupPenTool.Name = "groupPenTool";
-            groupPenTool.Size = new Size(194, 118);
+            groupPenTool.Size = new Size(194, 98);
             groupPenTool.TabIndex = 5;
             groupPenTool.TabStop = false;
             groupPenTool.Text = "Pen Tool";
@@ -94,27 +106,37 @@
             // 
             btnPenColor.BackColor = SystemColors.ActiveCaptionText;
             btnPenColor.Cursor = Cursors.Hand;
-            btnPenColor.Location = new Point(6, 66);
+            btnPenColor.Location = new Point(6, 51);
             btnPenColor.Name = "btnPenColor";
             btnPenColor.Size = new Size(182, 38);
             btnPenColor.TabIndex = 4;
             btnPenColor.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
+            // cmbPenSize
             // 
-            comboBox1.Cursor = Cursors.Hand;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(6, 37);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(182, 23);
-            comboBox1.TabIndex = 3;
-            comboBox1.Text = "1";
+            cmbPenSize.Cursor = Cursors.Hand;
+            cmbPenSize.FormattingEnabled = true;
+            cmbPenSize.Location = new Point(6, 22);
+            cmbPenSize.Name = "cmbPenSize";
+            cmbPenSize.Size = new Size(182, 23);
+            cmbPenSize.TabIndex = 3;
+            cmbPenSize.Text = "1";
+            // 
+            // pnl_Draw
+            // 
+            pnl_Draw.BackColor = SystemColors.ControlLightLight;
+            pnl_Draw.Location = new Point(224, 12);
+            pnl_Draw.Name = "pnl_Draw";
+            pnl_Draw.Size = new Size(564, 426);
+            pnl_Draw.TabIndex = 5;
+            pnl_Draw.MouseMove += pnl_Draw_MouseMove;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(pnl_Draw);
             Controls.Add(groupHUD);
             Controls.Add(groupHeader);
             Name = "Form1";
@@ -132,7 +154,9 @@
         private GroupBox groupHeader;
         private GroupBox groupHUD;
         private GroupBox groupPenTool;
-        private ComboBox comboBox1;
+        private ComboBox cmbPenSize;
         private Button btnPenColor;
+        private GroupBox groupBox1;
+        private Panel pnl_Draw;
     }
 }
