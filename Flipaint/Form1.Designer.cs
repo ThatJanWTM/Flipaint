@@ -40,8 +40,8 @@
             btn_Square = new Button();
             groupPenTool = new GroupBox();
             btnPenColor = new Button();
-            cmbPenSize = new ComboBox();
             pnl_Draw = new Panel();
+            cmbPenSize = new TextBox();
             groupHeader.SuspendLayout();
             groupHUD.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -151,8 +151,8 @@
             // 
             // groupPenTool
             // 
-            groupPenTool.Controls.Add(btnPenColor);
             groupPenTool.Controls.Add(cmbPenSize);
+            groupPenTool.Controls.Add(btnPenColor);
             groupPenTool.Location = new Point(6, 22);
             groupPenTool.Name = "groupPenTool";
             groupPenTool.Size = new Size(194, 98);
@@ -169,16 +169,7 @@
             btnPenColor.Size = new Size(182, 38);
             btnPenColor.TabIndex = 4;
             btnPenColor.UseVisualStyleBackColor = false;
-            // 
-            // cmbPenSize
-            // 
-            cmbPenSize.Cursor = Cursors.Hand;
-            cmbPenSize.FormattingEnabled = true;
-            cmbPenSize.Location = new Point(6, 22);
-            cmbPenSize.Name = "cmbPenSize";
-            cmbPenSize.Size = new Size(182, 23);
-            cmbPenSize.TabIndex = 3;
-            cmbPenSize.Text = "1";
+            btnPenColor.Click += button1_Click;
             // 
             // pnl_Draw
             // 
@@ -187,7 +178,17 @@
             pnl_Draw.Name = "pnl_Draw";
             pnl_Draw.Size = new Size(564, 426);
             pnl_Draw.TabIndex = 5;
+            pnl_Draw.MouseDown += pnl_Draw_MouseDown;
             pnl_Draw.MouseMove += pnl_Draw_MouseMove;
+            pnl_Draw.MouseUp += pnl_DrawMouseUp;
+            // 
+            // cmbPenSize
+            // 
+            cmbPenSize.Location = new Point(6, 22);
+            cmbPenSize.Name = "cmbPenSize";
+            cmbPenSize.Size = new Size(182, 23);
+            cmbPenSize.TabIndex = 5;
+            cmbPenSize.Text = "2";
             // 
             // Form1
             // 
@@ -204,6 +205,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupPenTool.ResumeLayout(false);
+            groupPenTool.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -214,7 +216,6 @@
         private GroupBox groupHeader;
         private GroupBox groupHUD;
         private GroupBox groupPenTool;
-        private ComboBox cmbPenSize;
         private Button btnPenColor;
         private GroupBox groupBox1;
         private Panel pnl_Draw;
@@ -223,5 +224,6 @@
         private Button btn_Square;
         private Label label1;
         private Button btnShapeSize;
+        private TextBox cmbPenSize;
     }
 }
