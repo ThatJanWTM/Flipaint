@@ -46,21 +46,21 @@ namespace Flipaint
                 SolidBrush sb = new SolidBrush(btnPenColor.BackColor);
                 //setting the width and height same for creating square.
                 //getting the width and height value from Textbox(txt_ShapeSize)
-                g.FillRectangle(sb, e.X, e.Y, int.Parse(btnShapeSize.Text), int.Parse(btnShapeSize.Text));
+                g.FillRectangle(sb, e.X, e.Y, int.Parse(btnShapeSized.Text), int.Parse(btnShapeSized.Text));
                 startPaint = false;
                 drawSquare = false;
             }
             if (drawRectangle)
             {
                 SolidBrush sb = new SolidBrush(btnPenColor.BackColor);
-                g.FillRectangle(sb, e.X, e.Y, 2 * int.Parse(btnShapeSize.Text), int.Parse(btnShapeSize.Text));
+                g.FillRectangle(sb, e.X, e.Y, 2 * int.Parse(btnShapeSized.Text), int.Parse(btnShapeSized.Text));
                 startPaint = false;
                 drawRectangle = false;
             }
             if (drawCircle)
             {
                 SolidBrush sb = new SolidBrush(btnPenColor.BackColor);
-                g.FillRectangle(sb, e.X, e.Y, 2 * int.Parse(btnShapeSize.Text), int.Parse(btnShapeSize.Text));
+                g.FillRectangle(sb, e.X, e.Y, 2 * int.Parse(btnShapeSized.Text), int.Parse(btnShapeSized.Text));
                 startPaint = false;
                 drawCircle = false;
             }
@@ -82,6 +82,26 @@ namespace Flipaint
                 btnPenColor.BackColor = c.Color;
             }
 
+        }
+
+        private void btn_Square_Click(object sender, EventArgs e)
+        {
+            drawSquare = true;
+        }
+
+        private void btn_Rectangle_Click(object sender, EventArgs e)
+        {
+            drawRectangle = true;
+        }
+
+        private void btn_Circle_Click(object sender, EventArgs e)
+        {
+            drawCircle = true;
+        }
+
+        private void btnFile_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

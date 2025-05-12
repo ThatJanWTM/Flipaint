@@ -29,19 +29,18 @@
         private void InitializeComponent()
         {
             btnFile = new Button();
-            btnHelp = new Button();
             groupHeader = new GroupBox();
             groupHUD = new GroupBox();
             groupBox1 = new GroupBox();
             label1 = new Label();
-            btnShapeSize = new Button();
             btn_Circle = new Button();
             btn_Rectangle = new Button();
             btn_Square = new Button();
             groupPenTool = new GroupBox();
+            cmbPenSize = new TextBox();
             btnPenColor = new Button();
             pnl_Draw = new Panel();
-            cmbPenSize = new TextBox();
+            btnShapeSize = new TextBox();
             groupHeader.SuspendLayout();
             groupHUD.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -55,23 +54,13 @@
             btnFile.Name = "btnFile";
             btnFile.Size = new Size(75, 23);
             btnFile.TabIndex = 0;
-            btnFile.Text = "File";
+            btnFile.Text = "Exit";
             btnFile.UseVisualStyleBackColor = true;
-            // 
-            // btnHelp
-            // 
-            btnHelp.Cursor = Cursors.Hand;
-            btnHelp.Location = new Point(87, 14);
-            btnHelp.Name = "btnHelp";
-            btnHelp.Size = new Size(75, 23);
-            btnHelp.TabIndex = 1;
-            btnHelp.Text = "Help";
-            btnHelp.UseVisualStyleBackColor = true;
+            btnFile.Click += btnFile_Click;
             // 
             // groupHeader
             // 
             groupHeader.Controls.Add(btnFile);
-            groupHeader.Controls.Add(btnHelp);
             groupHeader.Font = new Font("Arial Rounded MT Bold", 9.75F);
             groupHeader.Location = new Point(12, 6);
             groupHeader.Name = "groupHeader";
@@ -107,20 +96,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 199);
+            label1.Location = new Point(6, 204);
             label1.Name = "label1";
             label1.Size = new Size(79, 15);
             label1.TabIndex = 4;
             label1.Text = "Shape Size";
-            // 
-            // btnShapeSize
-            // 
-            btnShapeSize.Location = new Point(6, 217);
-            btnShapeSize.Name = "btnShapeSize";
-            btnShapeSize.Size = new Size(176, 28);
-            btnShapeSize.TabIndex = 3;
-            btnShapeSize.Text = "10";
-            btnShapeSize.UseVisualStyleBackColor = true;
             // 
             // btn_Circle
             // 
@@ -130,6 +110,7 @@
             btn_Circle.TabIndex = 2;
             btn_Circle.Text = "Circle";
             btn_Circle.UseVisualStyleBackColor = true;
+            btn_Circle.Click += btn_Circle_Click;
             // 
             // btn_Rectangle
             // 
@@ -139,6 +120,7 @@
             btn_Rectangle.TabIndex = 1;
             btn_Rectangle.Text = "Rectangle";
             btn_Rectangle.UseVisualStyleBackColor = true;
+            btn_Rectangle.Click += btn_Rectangle_Click;
             // 
             // btn_Square
             // 
@@ -148,6 +130,7 @@
             btn_Square.TabIndex = 0;
             btn_Square.Text = "Square";
             btn_Square.UseVisualStyleBackColor = true;
+            btn_Square.Click += btn_Square_Click;
             // 
             // groupPenTool
             // 
@@ -159,6 +142,14 @@
             groupPenTool.TabIndex = 5;
             groupPenTool.TabStop = false;
             groupPenTool.Text = "Pen Tool";
+            // 
+            // cmbPenSize
+            // 
+            cmbPenSize.Location = new Point(6, 22);
+            cmbPenSize.Name = "cmbPenSize";
+            cmbPenSize.Size = new Size(182, 23);
+            cmbPenSize.TabIndex = 5;
+            cmbPenSize.Text = "2";
             // 
             // btnPenColor
             // 
@@ -182,13 +173,15 @@
             pnl_Draw.MouseMove += pnl_Draw_MouseMove;
             pnl_Draw.MouseUp += pnl_DrawMouseUp;
             // 
-            // cmbPenSize
+            // btnShapeSize
             // 
-            cmbPenSize.Location = new Point(6, 22);
-            cmbPenSize.Name = "cmbPenSize";
-            cmbPenSize.Size = new Size(182, 23);
-            cmbPenSize.TabIndex = 5;
-            cmbPenSize.Text = "2";
+            btnShapeSize.Font = new Font("Arial Rounded MT Bold", 9.75F);
+            btnShapeSize.Location = new Point(6, 222);
+            btnShapeSize.Name = "btnShapeSize";
+            btnShapeSize.Size = new Size(176, 23);
+            btnShapeSize.TabIndex = 6;
+            btnShapeSize.Text = "10";
+            btnShapeSize.TextAlign = HorizontalAlignment.Center;
             // 
             // Form1
             // 
@@ -212,7 +205,6 @@
         #endregion
 
         private Button btnFile;
-        private Button btnHelp;
         private GroupBox groupHeader;
         private GroupBox groupHUD;
         private GroupBox groupPenTool;
@@ -223,7 +215,7 @@
         private Button btn_Rectangle;
         private Button btn_Square;
         private Label label1;
-        private Button btnShapeSize;
         private TextBox cmbPenSize;
+        private TextBox btnShapeSize;
     }
 }
