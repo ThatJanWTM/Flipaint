@@ -10,7 +10,26 @@ namespace Flipaint
         {
             InitializeComponent();
             g = pnl_Draw.CreateGraphics();
+
+            // Ensure pen size is never below 1
+            cmbPenSize.TextChanged += (s, e) =>
+            {
+                if (float.TryParse(cmbPenSize.Text, out float val) && val < 1)
+                {
+                    cmbPenSize.Text = "1";
+                }
+            };
+
+            // Ensure shape size is never below 1
+            btnShapeSize.TextChanged += (s, e) =>
+            {
+                if (int.TryParse(btnShapeSize.Text, out int val) && val < 1)
+                {
+                    btnShapeSize.Text = "1";
+                }
+            };
         }
+
         bool startPaint = false;
         Graphics g;
 
@@ -36,6 +55,7 @@ namespace Flipaint
 
             }
         }
+
         //Event Fired when the mouse pointer is over Panel and a mouse button is pressed
         private void pnl_Draw_MouseDown(object sender, MouseEventArgs e)
         {
@@ -46,32 +66,34 @@ namespace Flipaint
                 SolidBrush sb = new SolidBrush(btnPenColor.BackColor);
                 //setting the width and height same for creating square.
                 //getting the width and height value from Textbox(txt_ShapeSize)
-                g.FillRectangle(sb, e.X, e.Y, int.Parse(btnShapeSized.Text), int.Parse(btnShapeSized.Text));
+                g.FillRectangle(sb, e.X, e.Y, int.Parse(btnShapeSize.Text), int.Parse(btnShapeSize.Text));
                 startPaint = false;
                 drawSquare = false;
             }
             if (drawRectangle)
             {
                 SolidBrush sb = new SolidBrush(btnPenColor.BackColor);
-                g.FillRectangle(sb, e.X, e.Y, 2 * int.Parse(btnShapeSized.Text), int.Parse(btnShapeSized.Text));
+                g.FillRectangle(sb, e.X, e.Y, 2 * int.Parse(btnShapeSize.Text), int.Parse(btnShapeSize.Text));
                 startPaint = false;
                 drawRectangle = false;
             }
             if (drawCircle)
             {
                 SolidBrush sb = new SolidBrush(btnPenColor.BackColor);
-                g.FillRectangle(sb, e.X, e.Y, 2 * int.Parse(btnShapeSized.Text), int.Parse(btnShapeSized.Text));
+                g.FillRectangle(sb, e.X, e.Y, 2 * int.Parse(btnShapeSize.Text), int.Parse(btnShapeSize.Text));
                 startPaint = false;
                 drawCircle = false;
             }
         }
-        //Fired when tge mouse pointer is over pnl_Draw and a mouse button is released
+
+        //Fired when the mouse pointer is over pnl_Draw and a mouse button is released
         private void pnl_DrawMouseUp(object sender, MouseEventArgs e)
         {
             startPaint = false;
             initX = null;
             initY = null;
         }
+
         //Button for setting pen color
         private void button1_Click(object sender, EventArgs e)
         {
@@ -81,7 +103,6 @@ namespace Flipaint
             {
                 btnPenColor.BackColor = c.Color;
             }
-
         }
 
         private void btn_Square_Click(object sender, EventArgs e)

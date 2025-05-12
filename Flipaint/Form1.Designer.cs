@@ -33,14 +33,13 @@
             groupHUD = new GroupBox();
             groupBox1 = new GroupBox();
             label1 = new Label();
-            btn_Circle = new Button();
+            btnShapeSize = new TextBox();
             btn_Rectangle = new Button();
             btn_Square = new Button();
             groupPenTool = new GroupBox();
             cmbPenSize = new TextBox();
             btnPenColor = new Button();
             pnl_Draw = new Panel();
-            btnShapeSize = new TextBox();
             groupHeader.SuspendLayout();
             groupHUD.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -83,7 +82,6 @@
             // 
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(btnShapeSize);
-            groupBox1.Controls.Add(btn_Circle);
             groupBox1.Controls.Add(btn_Rectangle);
             groupBox1.Controls.Add(btn_Square);
             groupBox1.Location = new Point(6, 126);
@@ -96,21 +94,21 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 204);
+            label1.Location = new Point(6, 133);
             label1.Name = "label1";
             label1.Size = new Size(79, 15);
             label1.TabIndex = 4;
             label1.Text = "Shape Size";
             // 
-            // btn_Circle
+            // btnShapeSize
             // 
-            btn_Circle.Location = new Point(6, 136);
-            btn_Circle.Name = "btn_Circle";
-            btn_Circle.Size = new Size(176, 51);
-            btn_Circle.TabIndex = 2;
-            btn_Circle.Text = "Circle";
-            btn_Circle.UseVisualStyleBackColor = true;
-            btn_Circle.Click += btn_Circle_Click;
+            btnShapeSize.Font = new Font("Arial Rounded MT Bold", 9.75F);
+            btnShapeSize.Location = new Point(6, 151);
+            btnShapeSize.Name = "btnShapeSize";
+            btnShapeSize.Size = new Size(176, 23);
+            btnShapeSize.TabIndex = 6;
+            btnShapeSize.Text = "10";
+            btnShapeSize.TextAlign = HorizontalAlignment.Center;
             // 
             // btn_Rectangle
             // 
@@ -173,16 +171,6 @@
             pnl_Draw.MouseMove += pnl_Draw_MouseMove;
             pnl_Draw.MouseUp += pnl_DrawMouseUp;
             // 
-            // btnShapeSize
-            // 
-            btnShapeSize.Font = new Font("Arial Rounded MT Bold", 9.75F);
-            btnShapeSize.Location = new Point(6, 222);
-            btnShapeSize.Name = "btnShapeSize";
-            btnShapeSize.Size = new Size(176, 23);
-            btnShapeSize.TabIndex = 6;
-            btnShapeSize.Text = "10";
-            btnShapeSize.TextAlign = HorizontalAlignment.Center;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -191,6 +179,9 @@
             Controls.Add(pnl_Draw);
             Controls.Add(groupHUD);
             Controls.Add(groupHeader);
+            MaximizeBox = false;
+            MaximumSize = new Size(816, 489);
+            MinimumSize = new Size(816, 489);
             Name = "Form1";
             Text = "Flipaint";
             groupHeader.ResumeLayout(false);
@@ -211,7 +202,6 @@
         private Button btnPenColor;
         private GroupBox groupBox1;
         private Panel pnl_Draw;
-        private Button btn_Circle;
         private Button btn_Rectangle;
         private Button btn_Square;
         private Label label1;
